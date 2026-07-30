@@ -1945,27 +1945,36 @@ button {
     line-height: 1.32 !important;
   }
 
-  /* What You'll Build Cards */
+  /* What You'll Build Cards - 3 Columns x 3 Rows Grid */
   .build_grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
   }
 
   .build_card {
-    padding: 20px 16px;
-    border-radius: var(--radius-md);
+    padding: 12px 8px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    border-radius: var(--radius-md) !important;
+    min-width: 0 !important;
   }
 
-  .feature_card h4,
+  .build_card .build_icon {
+    font-size: 1.25rem !important;
+  }
+
   .build_card h4 {
-    font-size: 1.0rem;
-    margin-bottom: 4px;
+    font-size: 0.84rem !important;
+    margin-bottom: 2px !important;
+    line-height: 1.15 !important;
   }
 
-  .feature_card p,
   .build_card p {
-    font-size: 0.82rem;
-    line-height: 1.42;
+    font-size: 0.72rem !important;
+    line-height: 1.32 !important;
   }
 
   .feature_icon {
