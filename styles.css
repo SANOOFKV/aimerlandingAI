@@ -1814,60 +1814,55 @@ button {
     margin: 12px auto;
   }
 
-  /* 3 Phase Cards - 3 Columns 1 Row Grid (Fits 3 Columns Side-by-Side) */
+  /* 3 Phase Cards - 3 Rows / 1 Column Compact Vertical Stack */
   .styles_grid__Ef_Br {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 8px !important;
-    width: 100% !important;
-    overflow-x: auto !important;
-    padding-bottom: 4px !important;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .styles_grid__Ef_Br::-webkit-scrollbar {
-    display: none;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+    gap: 14px !important;
+    padding-bottom: 0 !important;
   }
 
   .styles_block__K5nIf {
+    flex: 1 1 100% !important;
     width: 100% !important;
-    min-width: 0 !important;
-    padding: 14px 8px !important;
+    min-width: 100% !important;
     min-height: auto !important;
+    padding: 18px 16px !important;
     border-radius: var(--radius-md) !important;
   }
 
   .styles_header__wPP1A {
-    gap: 6px !important;
+    gap: 10px !important;
   }
 
   .styles_shape__ARh_Y {
-    width: 32px !important;
-    height: 32px !important;
-    padding: 4px !important;
+    width: 42px !important;
+    height: 42px !important;
+    padding: 8px !important;
   }
 
   .styles_title__Ax_ch {
-    font-size: 0.85rem !important;
-    line-height: 1.18 !important;
+    font-size: 1.05rem !important;
+    line-height: 1.25 !important;
   }
 
   .styles_button__oaMA0 {
-    top: 10px !important;
-    right: 8px !important;
-    width: 24px !important;
-    height: 24px !important;
+    top: 16px !important;
+    right: 14px !important;
+    width: 32px !important;
+    height: 32px !important;
   }
 
   .styles_info__zrn_z {
-    margin-top: 8px !important;
-    gap: 8px !important;
+    margin-top: 14px !important;
+    gap: 12px !important;
   }
 
   .styles_text__wlL1h {
-    font-size: 0.72rem !important;
-    line-height: 1.35 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.42 !important;
   }
 
   /* Section Spacing & Text Sizes */
