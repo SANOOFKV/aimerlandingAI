@@ -527,6 +527,35 @@ button {
 }
 
 /* Bouncing & Breathing Scroll Indicator */
+.styles_social__btmu2 ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  list-style: none;
+}
+
+.styles_social__btmu2 ul a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.styles_social__btmu2 ul a:hover {
+  background: var(--color-violet);
+  border-color: var(--color-violet-light);
+  color: #ffffff;
+  transform: translate3d(0, -4px, 0) scale(1.1);
+  box-shadow: 0 8px 24px var(--color-violet-glow);
+}
+
 .styles_scroll__X10_m {
   display: flex;
   flex-direction: column;
