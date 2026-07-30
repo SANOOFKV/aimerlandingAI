@@ -1814,55 +1814,58 @@ button {
     margin: 12px auto;
   }
 
-  /* 3 Phase Cards - Compact 3 Rows / 1 Column Vertical Stack */
+  /* 3 Phase Cards - 3 Columns 1 Row Grid */
   .styles_grid__Ef_Br {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-wrap: wrap !important;
-    overflow-x: visible !important;
-    gap: 14px !important;
-    padding-bottom: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+    overflow-x: auto !important;
+    padding-bottom: 8px !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .styles_grid__Ef_Br::-webkit-scrollbar {
+    display: none;
   }
 
   .styles_block__K5nIf {
-    flex: 1 1 100% !important;
-    width: 100% !important;
-    min-width: 100% !important;
+    min-width: 240px !important;
+    padding: 16px 12px !important;
     min-height: auto !important;
-    padding: 18px 16px !important;
     border-radius: var(--radius-md) !important;
   }
 
   .styles_header__wPP1A {
-    gap: 10px;
+    gap: 8px !important;
   }
 
   .styles_shape__ARh_Y {
-    width: 42px;
-    height: 42px;
-    padding: 8px;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 6px !important;
   }
 
   .styles_title__Ax_ch {
-    font-size: 1.05rem;
-    line-height: 1.25;
+    font-size: 0.95rem !important;
+    line-height: 1.2 !important;
   }
 
   .styles_button__oaMA0 {
-    top: 16px;
-    right: 14px;
-    width: 32px;
-    height: 32px;
+    top: 14px !important;
+    right: 12px !important;
+    width: 28px !important;
+    height: 28px !important;
   }
 
   .styles_info__zrn_z {
-    margin-top: 14px;
-    gap: 12px;
+    margin-top: 10px !important;
+    gap: 10px !important;
   }
 
   .styles_text__wlL1h {
-    font-size: 0.82rem;
-    line-height: 1.42;
+    font-size: 0.78rem !important;
+    line-height: 1.38 !important;
   }
 
   /* Section Spacing & Text Sizes */
@@ -1911,14 +1914,44 @@ button {
     line-height: 1.48;
   }
 
-  /* Feature & Build Cards */
-  .features_grid,
+  /* Why This Program Feature Grid - 2 Columns 3 Rows + 1 Single Full Width Item */
+  .features_grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .feature_card {
+    padding: 16px 12px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .feature_card .feature_icon {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1.25rem !important;
+  }
+
+  .feature_card h4 {
+    font-size: 0.92rem !important;
+    margin-bottom: 2px !important;
+    line-height: 1.2 !important;
+  }
+
+  .feature_card p {
+    font-size: 0.78rem !important;
+    line-height: 1.38 !important;
+  }
+
+  /* What You'll Build Cards */
   .build_grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .feature_card,
   .build_card {
     padding: 20px 16px;
     border-radius: var(--radius-md);
