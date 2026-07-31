@@ -1377,9 +1377,11 @@ section#build .section_desc,
 }
 
 .faq_item.active .faq_answer {
-  max-height: 1000px !important;
+  max-height: 2000px !important;
   opacity: 1 !important;
-  padding: 0 28px 24px 28px !important;
+  display: block !important;
+  visibility: visible !important;
+  padding: 12px 28px 24px 28px !important;
 }
 
 /* ==========================================================================
