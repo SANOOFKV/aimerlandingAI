@@ -2006,16 +2006,29 @@ footer#contact .styles_middle__JoinCohort h3,
     line-height: 1.48;
   }
 
-  /* Why This Program Feature Grid */
+  /* Why This Program Feature Grid on Mobile */
   .features_grid {
     display: grid !important;
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px !important;
     width: 100% !important;
   }
 
+  @media (min-width: 580px) {
+    .features_grid {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+  }
+
+  .feature_card_7 {
+    grid-column: 1 / -1 !important;
+    max-width: 100% !important;
+    margin: 8px auto 0 auto !important;
+    width: 100% !important;
+  }
+
   .feature_card {
-    padding: 18px 16px !important;
+    padding: 16px 14px !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 8px !important;
@@ -2024,26 +2037,32 @@ footer#contact .styles_middle__JoinCohort h3,
   }
 
   .feature_card h4 {
-    font-size: 0.98rem !important;
+    font-size: 0.95rem !important;
     margin-bottom: 4px !important;
     line-height: 1.25 !important;
   }
 
   .feature_card p {
-    font-size: 0.86rem !important;
-    line-height: 1.45 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
   }
 
-  /* What You'll Build Cards */
+  /* What You'll Build Cards Grid on Mobile */
   .build_grid {
     display: grid !important;
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px !important;
     width: 100% !important;
   }
 
+  @media (min-width: 580px) {
+    .build_grid {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+  }
+
   .build_card {
-    padding: 18px 16px !important;
+    padding: 16px 14px !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 8px !important;
@@ -2052,7 +2071,15 @@ footer#contact .styles_middle__JoinCohort h3,
   }
 
   .build_card h4 {
-    font-size: 0.98rem !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 4px !important;
+    line-height: 1.25 !important;
+  }
+
+  .build_card p {
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+  }
     margin-bottom: 4px !important;
     line-height: 1.25 !important;
   }
