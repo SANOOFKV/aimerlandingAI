@@ -2038,23 +2038,23 @@ footer#contact .styles_middle__JoinCohort h3,
   }
 
   .feature_card {
-    padding: 16px 14px !important;
+    padding: 14px 12px !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 8px !important;
+    gap: 6px !important;
     border-radius: var(--radius-md) !important;
     min-width: 0 !important;
   }
 
   .feature_card h4 {
-    font-size: 0.95rem !important;
-    margin-bottom: 4px !important;
+    font-size: 0.86rem !important;
+    margin-bottom: 3px !important;
     line-height: 1.25 !important;
   }
 
   .feature_card p {
-    font-size: 0.82rem !important;
-    line-height: 1.4 !important;
+    font-size: 0.74rem !important;
+    line-height: 1.38 !important;
   }
 
   /* What You'll Build Cards Grid on Mobile */
