@@ -122,34 +122,43 @@ button {
 }
 
 /* ==========================================================================
-   Awwwards Scroll Reveal & Stagger System
+   Awwwards Scroll Reveal & Stagger System (Scoped Card 1-by-1 Reveal)
    ========================================================================== */
 .animate-fadeinup,
 .animate-text,
 .animate-blur-up {
-  opacity: 1 !important;
-  filter: blur(0px) !important;
-  transform: translate3d(0, 0, 0) !important;
+  opacity: 1;
+  filter: blur(0px);
+  transform: translate3d(0, 0, 0);
   transition: opacity var(--transition-slow), filter var(--transition-slow), transform var(--transition-slow);
 }
 
-.animate-fadeinup.is-visible,
-.animate-text.is-visible,
-.animate-blur-up.is-visible {
+/* Target ONLY grid cards for 1-by-1 staggered entrance */
+.build_card,
+.feature_card {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.build_card.is-visible,
+.feature_card.is-visible,
+.build_grid.is-visible .build_card,
+.features_grid.is-visible .feature_card {
   opacity: 1 !important;
-  filter: blur(0px) !important;
   transform: translate3d(0, 0, 0) !important;
 }
 
-.stagger-1 { transition-delay: 0.06s; }
-.stagger-2 { transition-delay: 0.12s; }
-.stagger-3 { transition-delay: 0.18s; }
-.stagger-4 { transition-delay: 0.24s; }
-.stagger-5 { transition-delay: 0.30s; }
-.stagger-6 { transition-delay: 0.36s; }
-.stagger-7 { transition-delay: 0.42s; }
-.stagger-8 { transition-delay: 0.48s; }
-.stagger-9 { transition-delay: 0.54s; }
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.10s; }
+.stagger-3 { transition-delay: 0.15s; }
+.stagger-4 { transition-delay: 0.20s; }
+.stagger-5 { transition-delay: 0.25s; }
+.stagger-6 { transition-delay: 0.30s; }
+.stagger-7 { transition-delay: 0.35s; }
+.stagger-8 { transition-delay: 0.40s; }
+.stagger-9 { transition-delay: 0.45s; }
 
 /* Text Hover Underline */
 .text-link-hover {

@@ -133,9 +133,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, observerOptions);
 
-  document.querySelectorAll('.animate-fadeinup, .animate-text, .feature_card, .build_card, .chart-line, .styles_block__K5nIf').forEach((el) => {
+  document.querySelectorAll('.animate-fadeinup, .animate-text, .feature_card, .build_card, .chart-line, .styles_block__K5nIf, .build_grid, .features_grid').forEach((el) => {
     revealObserver.observe(el);
   });
+
+  // Fail-safe: Ensure all cards become visible after 1.5s even if scroll observer is delayed
+  setTimeout(() => {
+    document.querySelectorAll('.build_card, .feature_card').forEach(card => {
+      card.classList.add('is-visible');
+    });
+  }, 1500);
 
   // ==========================================
   // 7. SVG Cutout Headline Scroll Parallax Zoom
