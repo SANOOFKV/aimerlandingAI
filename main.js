@@ -181,18 +181,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // FAQ Accordion Toggle System
+  // FAQ Accordion Toggle System (Desktop & Mobile Touch)
   // ==========================================
   const faqItems = document.querySelectorAll('.faq_item');
   faqItems.forEach(item => {
-    const questionBtn = item.querySelector('.faq_question');
-    questionBtn?.addEventListener('click', () => {
+    const handleFaqToggle = (e) => {
+      e.stopPropagation();
       const isActive = item.classList.contains('active');
       faqItems.forEach(i => i.classList.remove('active'));
       if (!isActive) {
         item.classList.add('active');
       }
-    });
+    };
+
+    const questionBtn = item.querySelector('.faq_question');
+    questionBtn?.addEventListener('click', handleFaqToggle);
   });
 
   // ==========================================

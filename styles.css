@@ -1785,12 +1785,17 @@ body.modal-open {
     font-size: clamp(1.45rem, 5.5vw, 2.0rem);
     margin-bottom: 12px;
     line-height: 1.18;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
   }
 
   .hero_subtitle {
     font-size: 0.88rem;
     line-height: 1.5;
     margin-bottom: 20px;
+    color: #cbd5e1 !important;
+    opacity: 1 !important;
   }
 
   .hero_cta_group {
@@ -2015,18 +2020,24 @@ body.modal-open {
 
   /* FAQ */
   .faq_question {
-    padding: 14px 16px;
+    padding: 16px;
     font-size: 0.88rem;
+    cursor: pointer;
+    touch-action: manipulation;
   }
 
   .faq_answer {
+    max-height: 0;
+    overflow: hidden;
     padding: 0 16px;
-    font-size: 0.82rem;
-    line-height: 1.45;
+    font-size: 0.84rem;
+    line-height: 1.5;
+    transition: max-height 0.4s ease, padding 0.4s ease;
   }
 
   .faq_item.active .faq_answer {
-    padding: 0 16px 16px 16px;
+    max-height: 600px !important;
+    padding: 0 16px 16px 16px !important;
   }
 
   /* Final CTA Form */
