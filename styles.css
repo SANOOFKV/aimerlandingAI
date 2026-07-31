@@ -796,7 +796,7 @@ button {
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.25;
-  color: #ffffff;
+  color: #0f172a !important;
 }
 
 .styles_button__oaMA0 {
@@ -806,8 +806,8 @@ button {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--color-border);
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -815,7 +815,7 @@ button {
 }
 
 .styles_button__oaMA0 svg path {
-  stroke: var(--color-violet-light);
+  stroke: #5e29f9;
   transition: stroke var(--transition-fast);
 }
 
@@ -1065,8 +1065,14 @@ button {
 
 .features_grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .features_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .feature_card {
@@ -1125,8 +1131,14 @@ button {
    ========================================================================== */
 .build_grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .build_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .build_card {
