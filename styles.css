@@ -1067,12 +1067,21 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
 @media (max-width: 1024px) {
   .features_grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.feature_card_7 {
+  grid-column: 1 / -1 !important;
+  max-width: 520px !important;
+  margin: 12px auto 0 auto !important;
+  width: 100% !important;
 }
 
 .feature_card {
@@ -1127,7 +1136,7 @@ button {
 }
 
 /* ==========================================================================
-   What You'll Build & Achieve Grid (Vibrant 3-Color Gradient Background)
+   What You'll Build & Achieve Grid (3 Columns x 3 Rows Grid)
    ========================================================================== */
 #build,
 section#build,
@@ -1165,6 +1174,7 @@ section#build .section_desc,
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
   gap: 24px;
 }
 
