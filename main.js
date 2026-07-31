@@ -297,12 +297,11 @@ document.addEventListener('DOMContentLoaded', () => {
   handleFormSubmit(modalForm, 'modal_form_success');
 
   // ==========================================
-  // 11. FAQ Accordion Toggle
+  // 11. FAQ Accordion Toggle (Click & Touch)
   // ==========================================
   const faqItems = document.querySelectorAll('.faq_item');
   faqItems.forEach(item => {
-    const questionBtn = item.querySelector('.faq_question');
-    questionBtn?.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
       const isActive = item.classList.contains('active');
       faqItems.forEach(i => i.classList.remove('active'));
       if (!isActive) {

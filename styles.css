@@ -1366,18 +1366,20 @@ section#build .section_desc,
 
 .faq_answer {
   max-height: 0;
+  opacity: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 0 28px;
-  color: #475569;
+  color: #334155;
   line-height: 1.65;
   font-size: 1rem;
   font-weight: 500;
 }
 
 .faq_item.active .faq_answer {
-  max-height: 200px;
-  padding: 0 28px 24px 28px;
+  max-height: 1000px !important;
+  opacity: 1 !important;
+  padding: 0 28px 24px 28px !important;
 }
 
 /* ==========================================================================
