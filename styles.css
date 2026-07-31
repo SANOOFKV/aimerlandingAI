@@ -1613,11 +1613,13 @@ body.modal-open {
 }
 
 /* Footer (Vibrant 3-Color Gradient Grounded Footer) */
+#contact,
+footer#contact,
 .styles_footer__0LLV_ {
   background: linear-gradient(135deg, #0f172a 0%, #5e29f9 50%, #7c4dff 100%) !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 80px 24px 40px 24px;
-  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+  padding: 80px 24px 40px 24px !important;
+  color: #ffffff !important;
 }
 
 .styles_container__jRrDg {
@@ -1636,28 +1638,34 @@ body.modal-open {
   }
 }
 
+#contact .styles_caption__X8ewY,
+footer#contact .styles_caption__X8ewY,
 .styles_caption__X8ewY {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #cbd5e1;
+  color: #cbd5e1 !important;
   margin-bottom: 16px;
   font-weight: 600;
 }
 
+#contact .styles_contactLink__dNUz1,
+footer#contact .styles_contactLink__dNUz1,
 .styles_contactLink__dNUz1 {
   display: inline-flex;
   align-items: center;
   gap: 12px;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
+#contact .styles_middle__JoinCohort h3,
+footer#contact .styles_middle__JoinCohort h3,
 .styles_middle__JoinCohort h3 {
   font-size: 2.4rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #ffffff !important;
   line-height: 1.2;
 }
 
