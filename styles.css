@@ -1860,6 +1860,10 @@ footer#contact .styles_middle__JoinCohort h3,
     color: #334155 !important;
   }
 
+  .nav-faq-item {
+    display: none !important;
+  }
+
   .styles_nav__contact__S0xFm {
     padding: 6px 14px;
     height: 34px;
@@ -2125,6 +2129,11 @@ footer#contact .styles_middle__JoinCohort h3,
   .build_card:active p,
   .build_card:focus p {
     color: #334155 !important;
+  }
+
+  /* Hide FAQ Section on Mobile View */
+  #faq {
+    display: none !important;
   }
 
   .feature_icon {
