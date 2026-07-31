@@ -90,7 +90,7 @@ button {
   left: 0;
   width: 38px;
   height: 38px;
-  border: 1.5px solid var(--color-violet-light);
+  border: 1.5px solid #5e29f9;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
@@ -105,7 +105,7 @@ button {
   left: 0;
   width: 8px;
   height: 8px;
-  background-color: var(--color-violet-light);
+  background-color: #5e29f9;
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
@@ -117,8 +117,8 @@ button {
 .custom-cursor.cursor-active {
   width: 64px;
   height: 64px;
-  background-color: rgba(124, 77, 255, 0.2);
-  border-color: #ffffff;
+  background-color: rgba(94, 41, 249, 0.08);
+  border-color: #5e29f9;
 }
 
 /* ==========================================================================
@@ -564,7 +564,7 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  color: var(--color-text-sub);
+  color: #475569;
   font-size: 0.85rem;
   font-weight: 600;
   margin-top: 20px;
@@ -577,7 +577,7 @@ button {
 }
 
 .styles_scroll__X10_m svg path {
-  stroke: #ffffff;
+  stroke: #5e29f9;
 }
 
 .styles_text__C1_W7 {
@@ -585,7 +585,7 @@ button {
   margin: 24px auto 0 auto;
   font-size: 1.15rem;
   line-height: 1.65;
-  color: var(--color-text-sub);
+  color: #475569;
   font-weight: 500;
 }
 
