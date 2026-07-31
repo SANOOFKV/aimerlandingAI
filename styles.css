@@ -2169,6 +2169,11 @@ footer#contact .styles_middle__JoinCohort h3,
   }
 
   /* Mobile Footer Typography */
+  .styles_contactLink__dNUz1 {
+    font-size: 0.98rem !important;
+    word-break: break-word !important;
+  }
+
   .styles_middle__JoinCohort h3 {
     font-size: 1.45rem !important;
     line-height: 1.25 !important;
