@@ -181,6 +181,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
+  // FAQ Accordion Toggle System
+  // ==========================================
+  const faqItems = document.querySelectorAll('.faq_item');
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq_question');
+    questionBtn?.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      faqItems.forEach(i => i.classList.remove('active'));
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+
+  // ==========================================
   // 9. Modal Popup & 40% Scroll Trigger
   // ==========================================
   const modalBackdrop = document.getElementById('cta_modal');

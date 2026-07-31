@@ -2040,9 +2040,13 @@ body.modal-open {
   }
 
   .faq_answer {
-    padding: 0 16px 16px 16px;
+    padding: 0 16px;
     font-size: 0.82rem;
     line-height: 1.45;
+  }
+
+  .faq_item.active .faq_answer {
+    padding: 0 16px 16px 16px;
   }
 
   /* Final CTA Form */
