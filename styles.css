@@ -1451,6 +1451,14 @@ button {
   animation: fadeIn 0.4s ease-out;
 }
 
+/* Strict Modal Open Scroll Lock */
+html.modal-open,
+body.modal-open {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none !important;
+}
+
 /* ==========================================================================
    40% Scroll Popup Modal CTA Form
    ========================================================================== */

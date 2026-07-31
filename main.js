@@ -190,15 +190,34 @@ document.addEventListener('DOMContentLoaded', () => {
   function openModal() {
     if (!modalBackdrop) return;
     modalBackdrop.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
+    document.documentElement.classList.add('modal-open');
+    document.body.classList.add('modal-open');
     hasPoppedOnScroll = true;
   }
 
   function closeModal() {
     if (!modalBackdrop) return;
     modalBackdrop.classList.remove('is-open');
-    document.body.style.overflow = '';
+    document.documentElement.classList.remove('modal-open');
+    document.body.classList.remove('modal-open');
   }
+
+  // Intercept scroll/wheel/touchmove events outside modal card while modal is open
+  window.addEventListener('wheel', (e) => {
+    if (modalBackdrop && modalBackdrop.classList.contains('is-open')) {
+      if (!e.target.closest('.styles_modal__card')) {
+        e.preventDefault();
+      }
+    }
+  }, { passive: false });
+
+  window.addEventListener('touchmove', (e) => {
+    if (modalBackdrop && modalBackdrop.classList.contains('is-open')) {
+      if (!e.target.closest('.styles_modal__card')) {
+        e.preventDefault();
+      }
+    }
+  }, { passive: false });
 
   function handleScrollPopup() {
     if (hasPoppedOnScroll) return;
