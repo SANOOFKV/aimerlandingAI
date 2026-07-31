@@ -122,17 +122,22 @@ button {
 }
 
 /* ==========================================================================
-   Awwwards Scroll Reveal & Stagger System (1-by-1 Sequential Cascade)
+   Awwwards Scroll Reveal & Stagger System
    ========================================================================== */
-.animate-fadeinup {
-  opacity: 0;
-  transform: translate3d(0, 35px, 0);
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+.animate-fadeinup,
+.animate-text,
+.animate-blur-up {
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+  transform: translate3d(0, 0, 0) !important;
+  transition: opacity var(--transition-slow), filter var(--transition-slow), transform var(--transition-slow);
 }
 
-.animate-fadeinup.is-visible {
+.animate-fadeinup.is-visible,
+.animate-text.is-visible,
+.animate-blur-up.is-visible {
   opacity: 1 !important;
+  filter: blur(0px) !important;
   transform: translate3d(0, 0, 0) !important;
 }
 
