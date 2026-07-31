@@ -1917,70 +1917,60 @@ body.modal-open {
     line-height: 1.48;
   }
 
-  /* Why This Program Feature Grid - 2 Columns x 3 Rows + 1 Full Width Item */
+  /* Why This Program Feature Grid */
   .features_grid {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
     width: 100% !important;
   }
 
   .feature_card {
-    padding: 12px 10px !important;
+    padding: 18px 16px !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 6px !important;
+    gap: 8px !important;
     border-radius: var(--radius-md) !important;
     min-width: 0 !important;
   }
 
-  .feature_card .feature_icon {
-    width: 32px !important;
-    height: 32px !important;
-    font-size: 1.1rem !important;
-  }
-
   .feature_card h4 {
-    font-size: 0.84rem !important;
-    margin-bottom: 2px !important;
-    line-height: 1.15 !important;
+    font-size: 0.98rem !important;
+    margin-bottom: 4px !important;
+    line-height: 1.25 !important;
   }
 
   .feature_card p {
-    font-size: 0.72rem !important;
-    line-height: 1.32 !important;
+    font-size: 0.86rem !important;
+    line-height: 1.45 !important;
   }
 
-  /* What You'll Build Cards - 3 Columns x 3 Rows Grid */
+  /* What You'll Build Cards */
   .build_grid {
     display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 8px !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
     width: 100% !important;
   }
 
   .build_card {
-    padding: 12px 8px !important;
+    padding: 18px 16px !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 6px !important;
+    gap: 8px !important;
     border-radius: var(--radius-md) !important;
     min-width: 0 !important;
   }
 
-  .build_card .build_icon {
-    font-size: 1.25rem !important;
-  }
-
   .build_card h4 {
-    font-size: 0.84rem !important;
-    margin-bottom: 2px !important;
-    line-height: 1.15 !important;
+    font-size: 0.98rem !important;
+    margin-bottom: 4px !important;
+    line-height: 1.25 !important;
   }
 
   .build_card p {
-    font-size: 0.72rem !important;
-    line-height: 1.32 !important;
+    font-size: 0.86rem !important;
+    line-height: 1.45 !important;
   }
 
   .feature_icon {
