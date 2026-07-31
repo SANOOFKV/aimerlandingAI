@@ -2081,6 +2081,7 @@ footer#contact .styles_middle__JoinCohort h3,
     border-radius: var(--radius-md) !important;
     min-width: 0 !important;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+    transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast) !important;
   }
 
   .build_card h4 {
@@ -2088,12 +2089,35 @@ footer#contact .styles_middle__JoinCohort h3,
     font-size: 0.86rem !important;
     margin-bottom: 3px !important;
     line-height: 1.25 !important;
+    transition: color var(--transition-fast) !important;
   }
 
   .build_card p {
     color: #e2e8f0 !important;
     font-size: 0.74rem !important;
     line-height: 1.38 !important;
+    transition: color var(--transition-fast) !important;
+  }
+
+  /* On Click / Tap / Hover / Active: Turn background white and text black */
+  .build_card:hover,
+  .build_card:active,
+  .build_card:focus {
+    background: #ffffff !important;
+    border-color: #60a5fa !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  .build_card:hover h4,
+  .build_card:active h4,
+  .build_card:focus h4 {
+    color: #0f172a !important;
+  }
+
+  .build_card:hover p,
+  .build_card:active p,
+  .build_card:focus p {
+    color: #334155 !important;
   }
 
   .feature_icon {
