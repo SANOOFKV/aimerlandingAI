@@ -490,22 +490,7 @@ button {
 }
 
 .styles_images__w4HUt {
-  max-width: 760px;
-  margin: 0 auto 40px auto;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: 0 25px 70px rgba(94, 41, 249, 0.3);
-  border: 1px solid var(--color-border);
-  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-
-.styles_images__w4HUt img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.6s var(--ease-out-expo);
+  display: none !important;
 }
 
 .styles_images__w4HUt:hover img {
