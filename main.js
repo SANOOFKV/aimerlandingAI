@@ -133,10 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, observerOptions);
 
-  document.querySelectorAll('.animate-fadeinup, .animate-text, .feature_card, .build_card, .chart-line, .styles_block__K5nIf').forEach((el, idx) => {
-    if (!el.classList.contains('stagger-1') && !el.classList.contains('stagger-2')) {
-      el.classList.add(`stagger-${(idx % 5) + 1}`);
-    }
+  document.querySelectorAll('.animate-fadeinup, .animate-text, .feature_card, .build_card, .chart-line, .styles_block__K5nIf').forEach((el) => {
     revealObserver.observe(el);
   });
 
