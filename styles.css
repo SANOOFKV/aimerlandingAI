@@ -1820,30 +1820,9 @@ footer#contact .styles_middle__JoinCohort h3,
 
 /* Mobile Breakpoints (max-width: 768px) */
 @media (max-width: 768px) {
-  /* Header Navigation Bar */
+  /* Header Navigation Bar & Aimer AI Logo Hidden on Mobile */
   .styles_header__qc_3q {
-    padding: 10px 14px;
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    flex-wrap: wrap;
-    gap: 8px;
-    z-index: 1000 !important;
-  }
-
-  .styles_logoshape__Sq47Z {
-    height: 36px;
-    padding: 5px 12px;
-  }
-
-  .logo-text {
-    font-size: 0.92rem;
-    color: #0f172a !important;
-  }
-
-  .styles_container__tSMES {
-    width: 100%;
+    display: none !important;
   }
 
   .styles_nav__ka1_N {
