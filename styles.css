@@ -1879,19 +1879,23 @@ footer#contact .styles_middle__JoinCohort h3,
 
   .hero_cta_group {
     flex-direction: column;
+    align-items: center;
     width: 100%;
     gap: 10px;
   }
 
-  .styles_button__DwtwR {
-    width: 100%;
+  .hero_cta_group .styles_button__DwtwR {
+    width: 100% !important;
+    max-width: 260px !important;
+    margin: 0 auto;
   }
 
-  .styles_button__container__kKhYm {
-    width: 100%;
+  .hero_cta_group .styles_button__container__kKhYm {
+    width: 100% !important;
     justify-content: center;
-    padding: 12px 18px;
-    font-size: 0.86rem;
+    padding: 10px 20px !important;
+    font-size: 0.84rem !important;
+    height: 42px !important;
   }
 
   .styles_images__w4HUt {
