@@ -190,12 +190,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function openModal() {
     if (!modalBackdrop) return;
     modalBackdrop.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
     hasPoppedOnScroll = true;
   }
 
   function closeModal() {
     if (!modalBackdrop) return;
     modalBackdrop.classList.remove('is-open');
+    document.body.style.overflow = '';
   }
 
   function handleScrollPopup() {
