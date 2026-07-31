@@ -1612,12 +1612,12 @@ body.modal-open {
   opacity: 0.4;
 }
 
-/* Footer (Clean Light Grounded Footer) */
+/* Footer (Vibrant 3-Color Gradient Grounded Footer) */
 .styles_footer__0LLV_ {
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #0f172a 0%, #5e29f9 50%, #7c4dff 100%) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding: 80px 24px 40px 24px;
-  color: #0f172a;
+  color: #ffffff;
 }
 
 .styles_container__jRrDg {
@@ -1640,7 +1640,7 @@ body.modal-open {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #64748b;
+  color: #cbd5e1;
   margin-bottom: 16px;
   font-weight: 600;
 }
@@ -1651,13 +1651,13 @@ body.modal-open {
   gap: 12px;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #ffffff;
 }
 
 .styles_middle__JoinCohort h3 {
   font-size: 2.4rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #ffffff;
   line-height: 1.2;
 }
 
@@ -1676,24 +1676,24 @@ body.modal-open {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  color: #0f172a;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
   transition: all var(--transition-fast);
 }
 
 .styles_social__btmu2 ul a:hover {
-  color: #ffffff;
-  background: var(--color-violet);
-  border-color: var(--color-violet);
+  color: #5e29f9;
+  background: #ffffff;
+  border-color: #ffffff;
   transform: translateY(-2px);
 }
 
 .styles_newsletter__phkz5 form {
   display: flex;
   align-items: center;
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-pill);
   padding: 4px 4px 4px 18px;
 }
@@ -1702,7 +1702,7 @@ body.modal-open {
   background: transparent;
   border: none;
   outline: none;
-  color: #0f172a;
+  color: #ffffff;
   font-size: 0.95rem;
   width: 100%;
 }
@@ -1711,7 +1711,8 @@ body.modal-open {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: var(--color-violet);
+  background: #ffffff;
+  color: #5e29f9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1722,12 +1723,12 @@ body.modal-open {
   max-width: 1320px;
   margin: 48px auto 0 auto;
   padding-top: 24px;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 0.85rem;
-  color: #64748b;
+  color: #cbd5e1;
 }
 
 /* ==========================================================================
