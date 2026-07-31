@@ -1565,13 +1565,15 @@ button {
   max-width: 1320px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 64px;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 48px;
+  align-items: flex-start;
 }
 
 @media (max-width: 992px) {
   .styles_container__jRrDg {
     grid-template-columns: 1fr;
+    gap: 36px;
   }
 }
 
@@ -1593,42 +1595,39 @@ button {
   color: #ffffff;
 }
 
-.styles_right__1jkaW h3 {
-  font-size: 2.6rem;
+.styles_middle__JoinCohort h3 {
+  font-size: 2.4rem;
   font-weight: 800;
   color: #ffffff;
-  margin-bottom: 24px;
+  line-height: 1.2;
 }
 
-.styles_navs__mRDps {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 40px;
-  margin-top: 48px;
-  padding-top: 48px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-@media (max-width: 768px) {
-  .styles_navs__mRDps {
-    grid-template-columns: 1fr;
-  }
-}
-
-.styles_navs__mRDps ul {
+.styles_social__btmu2 ul {
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 12px;
+  align-items: center;
 }
 
-.styles_navs__mRDps ul a {
-  font-size: 0.95rem;
+.styles_social__btmu2 ul a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #cbd5e1;
+  transition: all var(--transition-fast);
 }
 
-.styles_navs__mRDps ul a:hover {
+.styles_social__btmu2 ul a:hover {
   color: #ffffff;
+  background: var(--color-violet);
+  border-color: var(--color-violet);
+  transform: translateY(-2px);
 }
 
 .styles_newsletter__phkz5 form {
@@ -2148,14 +2147,7 @@ button {
     gap: 28px;
   }
 
-  .styles_navs__mRDps {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-top: 24px;
-    padding-top: 24px;
-  }
-
-  .styles_right__1jkaW h3 {
+  .styles_middle__JoinCohort h3 {
     font-size: 1.5rem;
   }
 
