@@ -2168,6 +2168,12 @@ footer#contact .styles_middle__JoinCohort h3,
     color: #334155 !important;
   }
 
+  /* Mobile Footer Typography */
+  .styles_middle__JoinCohort h3 {
+    font-size: 1.45rem !important;
+    line-height: 1.25 !important;
+  }
+
   /* Hide FAQ Section on Mobile View */
   #faq {
     display: none !important;
