@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 9. Modal Popup & 20% Scroll Trigger
+  // 9. Modal Popup & 40% Scroll Trigger
   // ==========================================
   const modalBackdrop = document.getElementById('cta_modal');
   const modalCloseBtn = document.getElementById('modal_close');
@@ -206,8 +206,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (totalScrollable > 0) {
       const percentage = (scrollY / totalScrollable) * 100;
-      // Trigger modal as soon as scrolling reaches 20% or 350px
-      if (percentage >= 20 || scrollY >= 350) {
+      // Trigger modal when scrolling reaches 40% of total page height
+      if (percentage >= 40) {
         openModal();
       }
     }
