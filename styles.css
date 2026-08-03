@@ -1920,6 +1920,13 @@ footer#contact .styles_middle__JoinCohort h3,
     margin: 12px auto;
   }
 
+  .styles_text__C1_W7 {
+    font-size: 0.85rem !important;
+    line-height: 1.48 !important;
+    margin: 16px auto 0 auto !important;
+    padding: 0 8px !important;
+  }
+
   /* 3 Phase Cards - 3 Rows / 1 Column Compact Vertical Stack */
   .styles_grid__Ef_Br {
     display: flex !important;
