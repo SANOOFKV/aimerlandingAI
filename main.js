@@ -282,6 +282,56 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!form) return;
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      // Extract Form Field Values
+      const nameInput = form.querySelector('input[type="text"]')?.value || '';
+      const emailInput = form.querySelector('input[type="email"]')?.value || '';
+      const countryCodeSelect = form.querySelector('.single_phone_select')?.value || '';
+      const rawPhoneInput = form.querySelector('.single_phone_input')?.value || '';
+      const roleSelect = form.querySelector('select:not(.single_phone_select)')?.value || '';
+
+      const fullPhone = `${countryCodeSelect} ${rawPhoneInput}`.trim();
+
+      // 1. Google Tag Manager / GTag DataLayer Lead Event
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'lead_submitted',
+        'form_id': form.id,
+        'user_name': nameInput,
+        'user_email': emailInput,
+        'user_phone': fullPhone,
+        'user_role': roleSelect
+      });
+
+      // 2. Microsoft Clarity Custom Lead Event
+      if (typeof window.clarity === 'function') {
+        window.clarity('event', 'lead_submitted');
+      }
+
+      // 3. Meta Pixel (Facebook Pixel) Lead Conversion Event
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead', {
+          content_name: '14-Day Applied AI Workshop',
+          category: roleSelect
+        });
+      }
+
+      // 4. LeadSquared CRM API Submission (LSQ Web API / Webhook)
+      const lsqEndpoint = window.LSQ_API_ENDPOINT || '';
+      if (lsqEndpoint) {
+        fetch(lsqEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify([
+            { "Attribute": "FirstName", "Value": nameInput },
+            { "Attribute": "EmailAddress", "Value": emailInput },
+            { "Attribute": "Phone", "Value": fullPhone },
+            { "Attribute": "mx_Profession", "Value": roleSelect },
+            { "Attribute": "Source", "Value": "Aimer Landing AI Web" }
+          ])
+        }).catch(err => console.warn('LeadSquared CRM submission warning:', err));
+      }
+
       const successBox = document.getElementById(successMsgId);
       if (successBox) {
         form.style.display = 'none';
