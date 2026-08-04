@@ -286,6 +286,21 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+  function formatLsqPhone(countryCode, rawPhone) {
+    let digits = rawPhone.replace(/\D/g, '');
+    if (countryCode === '+91' && digits.startsWith('91') && digits.length === 12) {
+      digits = digits.slice(2);
+    }
+    if (countryCode === '+91') {
+      return digits;
+    }
+    const cleanCode = countryCode.replace('+', '');
+    if (digits.startsWith(cleanCode)) {
+      digits = digits.slice(cleanCode.length);
+    }
+    return `${countryCode}${digits}`;
+  }
+
   // ==========================================
   // 10. Form Submissions
   // ==========================================
@@ -305,6 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const roleSelect = form.querySelector('select:not(.single_phone_select)')?.value || '';
 
       const fullPhone = `${countryCodeSelect} ${rawPhoneInput}`.trim();
+      const lsqPhone = formatLsqPhone(countryCodeSelect, rawPhoneInput);
 
       // 1. Google Tag Manager / GTag DataLayer Lead Event
       window.dataLayer = window.dataLayer || [];
@@ -338,7 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const lsqPayload = [
         { Attribute: 'FirstName',        Value: firstName },
         { Attribute: 'LastName',         Value: lastName  },
-        { Attribute: 'Phone',            Value: fullPhone },
+        { Attribute: 'Phone',            Value: lsqPhone  },
         { Attribute: 'EmailAddress',     Value: emailInput },
         { Attribute: 'JobTitle',         Value: roleSelect },
         { Attribute: 'Source',           Value: 'Meta AI Lead' }
