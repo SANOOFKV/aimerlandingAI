@@ -287,18 +287,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function formatLsqPhone(countryCode, rawPhone) {
-    let digits = rawPhone.replace(/\D/g, '');
-    if (countryCode === '+91' && digits.startsWith('91') && digits.length === 12) {
-      digits = digits.slice(2);
+    let digits = (rawPhone || '').replace(/\D/g, '');
+    if (digits.startsWith('0')) {
+      digits = digits.substring(1);
     }
-    if (countryCode === '+91') {
+    const codeDigits = (countryCode || '').replace(/\D/g, '');
+    if (codeDigits && digits.startsWith(codeDigits) && digits.length > 10) {
+      digits = digits.substring(codeDigits.length);
+    }
+    if (countryCode === '+91' || codeDigits === '91') {
+      if (digits.length > 10) {
+        digits = digits.slice(-10);
+      }
       return digits;
     }
-    const cleanCode = countryCode.replace('+', '');
-    if (digits.startsWith(cleanCode)) {
-      digits = digits.slice(cleanCode.length);
-    }
-    return `${countryCode}${digits}`;
+    return `+${codeDigits}${digits}`;
   }
 
   // ==========================================
