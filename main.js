@@ -187,12 +187,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // FAQ Accordion Toggle System (Desktop & Mobile Touch)
   // ==========================================
-  const faqItems = document.querySelectorAll('.faq_item');
-  faqItems.forEach(item => {
+  const faqItemsList = document.querySelectorAll('.faq_item');
+  faqItemsList.forEach(item => {
     const handleFaqToggle = (e) => {
       e.stopPropagation();
       const isActive = item.classList.contains('active');
-      faqItems.forEach(i => i.classList.remove('active'));
+      faqItemsList.forEach(i => i.classList.remove('active'));
       if (!isActive) {
         item.classList.add('active');
       }
@@ -284,14 +284,28 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const successBox = document.getElementById(successMsgId);
       if (successBox) {
+        form.style.display = 'none';
+
         successBox.style.display = 'block';
+        successBox.innerHTML = `
+          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding: 24px 12px; gap:12px; animation: fadeIn 0.4s ease-out;">
+            <div style="width:54px; height:54px; border-radius:50%; background: linear-gradient(135deg, #22c55e, #16a34a); display:flex; align-items:center; justify-content:center; color:#ffffff; box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h4 style="font-size:1.25rem; font-weight:800; color:#0f172a; margin:0;">Seat Reservation Request Received!</h4>
+            <p style="font-size:0.90rem; color:#475569; margin:0; line-height:1.45;">Welcome aboard! Our mentor team will reach out via WhatsApp/Email shortly to complete your enrollment.</p>
+          </div>
+        `;
         form.reset();
         
         if (form === modalForm) {
           setTimeout(() => {
             closeModal();
-            successBox.style.display = 'none';
-          }, 2500);
+            setTimeout(() => {
+              form.style.display = 'block';
+              successBox.style.display = 'none';
+            }, 600);
+          }, 3200);
         }
       }
     });
@@ -299,20 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   handleFormSubmit(inlineForm, 'inline_form_success');
   handleFormSubmit(modalForm, 'modal_form_success');
-
-  // ==========================================
-  // 11. FAQ Accordion Toggle (Click & Touch)
-  // ==========================================
-  const faqItems = document.querySelectorAll('.faq_item');
-  faqItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-      const isActive = item.classList.contains('active');
-      faqItems.forEach(i => i.classList.remove('active'));
-      if (!isActive) {
-        item.classList.add('active');
-      }
-    });
-  });
 
   // ==========================================
   // 12. Interactive Ambient Fiber Canvas Mesh Effect

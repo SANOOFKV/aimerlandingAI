@@ -1473,15 +1473,84 @@ section#build .section_desc,
   transition: all var(--transition-fast);
 }
 
+.form_control:hover {
+  border-color: #a78bfa;
+  background: #ffffff;
+}
+
 .form_control:focus {
-  border-color: var(--color-violet-light);
-  box-shadow: 0 0 12px rgba(94, 41, 249, 0.18);
+  border-color: var(--color-violet);
+  box-shadow: 0 0 0 3.5px rgba(94, 41, 249, 0.15), 0 4px 16px rgba(94, 41, 249, 0.1);
   background: #ffffff;
 }
 
 .form_control select, option {
   background: #ffffff;
   color: #0f172a;
+}
+
+.single_phone_field {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all var(--transition-fast);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.single_phone_field:hover {
+  border-color: #a78bfa;
+  background: #ffffff;
+}
+
+.single_phone_field:focus-within {
+  border-color: var(--color-violet);
+  box-shadow: 0 0 0 3.5px rgba(94, 41, 249, 0.15), 0 4px 16px rgba(94, 41, 249, 0.1);
+  background: #ffffff;
+}
+
+.single_phone_select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%2364748b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 10px center !important;
+  background-size: 10px 6px !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 11px 26px 11px 12px !important;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #0f172a;
+  cursor: pointer;
+  border-right: 1px solid #cbd5e1 !important;
+  border-radius: 0 !important;
+  height: 100% !important;
+  width: auto !important;
+  min-width: 95px !important;
+  flex-shrink: 0 !important;
+}
+
+.single_phone_select:hover {
+  background-color: rgba(94, 41, 249, 0.04) !important;
+}
+
+.single_phone_input {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 11px 12px !important;
+  font-size: 0.92rem;
+  color: #0f172a;
+  width: 100% !important;
+  flex: 1 !important;
 }
 
 .form_grid_row {
@@ -1545,7 +1614,7 @@ body.modal-open {
 }
 
 /* ==========================================================================
-   40% Scroll Popup Modal CTA Form
+   40% Scroll Popup Modal CTA Form (Glassmorphism & Spring Animations)
    ========================================================================== */
 .styles_modal__backdrop {
   position: fixed;
@@ -1553,9 +1622,9 @@ body.modal-open {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   z-index: 100000;
   display: flex;
   align-items: center;
@@ -1564,7 +1633,7 @@ body.modal-open {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: all var(--transition-normal);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .styles_modal__backdrop.is-open {
@@ -1574,30 +1643,32 @@ body.modal-open {
 }
 
 .styles_modal__card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: linear-gradient(165deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(94, 41, 249, 0.25);
   border-radius: var(--radius-lg);
-  padding: 40px 36px;
+  padding: 42px 38px 36px 38px;
   width: 100%;
   max-width: 580px;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 30px rgba(94, 41, 249, 0.12);
-  transform: scale(0.9) translate3d(0, 30px, 0);
-  transition: transform var(--transition-normal);
+  box-shadow: 0 25px 80px rgba(15, 23, 42, 0.35), 0 0 40px rgba(94, 41, 249, 0.18);
+  transform: scale(0.92) translate3d(0, 24px, 0);
+  filter: blur(4px);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease-out;
 }
 
 .styles_modal__backdrop.is-open .styles_modal__card {
   transform: scale(1) translate3d(0, 0, 0) !important;
+  filter: blur(0px) !important;
 }
 
 .modal_close_btn {
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: rgba(241, 245, 249, 0.8);
   border: 1px solid #cbd5e1;
   color: #0f172a;
   font-size: 1.4rem;
@@ -1605,14 +1676,16 @@ body.modal-open {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .modal_close_btn:hover {
   background: var(--color-pink);
   border-color: var(--color-pink);
   color: #ffffff;
-  transform: rotate(90deg);
+  transform: rotate(90deg) scale(1.08);
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3);
 }
 
 .modal_header {
@@ -2315,6 +2388,11 @@ footer#contact .styles_middle__JoinCohort h3,
     font-size: 0.80rem !important;
     height: 38px !important;
     border-radius: var(--radius-sm) !important;
+  }
+
+  .phone_country_code {
+    width: 88px !important;
+    padding: 6px 4px !important;
   }
 
   .submit_btn {
