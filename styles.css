@@ -377,7 +377,7 @@ button {
 .styles_hero__XVQM0 {
   position: relative;
   min-height: 100vh;
-  padding-top: 140px;
+  padding-top: 200px;
   padding-bottom: 60px;
   display: flex;
   flex-direction: column;
@@ -1935,7 +1935,7 @@ footer#contact .styles_middle__JoinCohort h3,
 
   /* Hero Section Compact Typography */
   .styles_hero__XVQM0 {
-    padding-top: 115px;
+    padding-top: 155px;
     padding-bottom: 30px;
   }
 
