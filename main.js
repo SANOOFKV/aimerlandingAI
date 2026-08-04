@@ -272,6 +272,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === modalBackdrop) closeModal();
   });
 
+  // ─── LeadSquared CRM Configuration ───────────────────────────────────────
+  const LSQ_URL = 'https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.Create?accessKey=u$r0f83abac5915f1175344c491a1481e4a&secretKey=e23030c4b0cc1edc251ad61ce5340a9f6499c21d';
+
+  function getUtmParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      utmSource: params.get('utm_source') || '',
+      utmMedium: params.get('utm_medium') || '',
+      utmCampaign: params.get('utm_campaign') || '',
+      utmTerm: params.get('utm_term') || '',
+      utmContent: params.get('utm_content') || ''
+    };
+  }
+
   // ==========================================
   // 10. Form Submissions
   // ==========================================
@@ -316,21 +330,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // 4. LeadSquared CRM API Submission (LSQ Web API / Webhook)
-      const lsqEndpoint = window.LSQ_API_ENDPOINT || '';
-      if (lsqEndpoint) {
-        fetch(lsqEndpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify([
-            { "Attribute": "FirstName", "Value": nameInput },
-            { "Attribute": "EmailAddress", "Value": emailInput },
-            { "Attribute": "Phone", "Value": fullPhone },
-            { "Attribute": "mx_Profession", "Value": roleSelect },
-            { "Attribute": "Source", "Value": "Aimer Landing AI Web" }
-          ])
-        }).catch(err => console.warn('LeadSquared CRM submission warning:', err));
-      }
+      // 4. LeadSquared CRM API Payload Construction
+      const nameParts = nameInput.trim().split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
+
+      const lsqPayload = [
+        { Attribute: 'FirstName',        Value: firstName },
+        { Attribute: 'LastName',         Value: lastName  },
+        { Attribute: 'Phone',            Value: fullPhone },
+        { Attribute: 'EmailAddress',     Value: emailInput },
+        { Attribute: 'JobTitle',         Value: roleSelect },
+        { Attribute: 'Source',           Value: 'Meta AI Lead' }
+      ];
+
+      const utms = getUtmParams();
+      if (utms.utmSource)   lsqPayload.push({ Attribute: 'mx_utm_source',   Value: utms.utmSource });
+      if (utms.utmMedium)   lsqPayload.push({ Attribute: 'mx_utm_medium',   Value: utms.utmMedium });
+      if (utms.utmCampaign) lsqPayload.push({ Attribute: 'mx_utm_campaign', Value: utms.utmCampaign });
+      if (utms.utmTerm)     lsqPayload.push({ Attribute: 'mx_utm_term',     Value: utms.utmTerm });
+      if (utms.utmContent)  lsqPayload.push({ Attribute: 'mx_utm_content',  Value: utms.utmContent });
+
+      // Post Lead Data to LeadSquared CRM API
+      fetch(LSQ_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lsqPayload)
+      }).then(async (res) => {
+        if (!res.ok) {
+          const text = await res.text();
+          console.warn('LeadSquared API response warning:', text);
+        }
+      }).catch(err => console.warn('LeadSquared CRM submission network error:', err));
 
       const successBox = document.getElementById(successMsgId);
       if (successBox) {
