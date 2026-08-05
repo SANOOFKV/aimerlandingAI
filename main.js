@@ -441,6 +441,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lineCounter) lineCounter.classList.add('is-complete');
       }
     }, stepInterval);
+  }
+
   // ==========================================
   // 8. Hero Headline 0-to-14 Counter Animation
   // ==========================================
