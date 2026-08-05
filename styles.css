@@ -3009,6 +3009,7 @@ footer#contact .styles_middle__JoinCohort h3,
   color: #0f172a;
   min-width: 18px;
   text-align: center;
+  transform: translateY(-4px);
   transition: transform 0.2s ease, color 0.3s ease;
 }
 
@@ -3021,7 +3022,7 @@ footer#contact .styles_middle__JoinCohort h3,
 
 .header_line_counter.is-complete .counter_end {
   color: #0f172a;
-  transform: scale(1.1);
+  transform: translateY(-4px) scale(1.1);
 }
 
 .line_draw_wrap {
