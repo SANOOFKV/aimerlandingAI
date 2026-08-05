@@ -2952,11 +2952,12 @@ footer#contact .styles_middle__JoinCohort h3,
 }
 
 .site_header_container {
-  max-width: 1320px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100% !important;
+  max-width: 1320px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }
 
 .site_logo {
@@ -2978,9 +2979,10 @@ footer#contact .styles_middle__JoinCohort h3,
 
 /* Minimalist Header Line Counter (1 -> Curved Stroke Drawing Line -> 14) */
 .header_line_counter {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-left: auto !important;
   font-family: var(--font-heading);
   user-select: none;
 }
