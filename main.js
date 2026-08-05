@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (daysCounter) {
     let currentVal = 0;
     const targetVal = 14;
-    const duration = 1500;
+    const duration = 1000;
     const stepInterval = Math.floor(duration / (targetVal + 1));
 
     let pathLength = 100;
@@ -450,7 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroCounter) {
     let currentHeroVal = 0;
     const targetHeroVal = 14;
-    const duration = 1400;
+    const duration = 1000;
     const stepInterval = Math.floor(duration / (targetHeroVal + 1));
 
     heroCounter.textContent = '0';
