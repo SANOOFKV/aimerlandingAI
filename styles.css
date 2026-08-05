@@ -3124,34 +3124,57 @@ footer#contact .styles_middle__JoinCohort h3,
   font-variant-numeric: tabular-nums;
 }
 
-/* "What You'll Build" — 6 Cards White Background & Black Text */
+/* "What You'll Build" — Compact 6 Cards & Text Overrides */
+.build_grid {
+  gap: 16px !important;
+}
+
 .build_card {
   background: #ffffff !important;
   color: #0f172a !important;
   border: 1px solid rgba(226, 232, 240, 0.8) !important;
   border-radius: var(--radius-md) !important;
-  padding: 28px 24px !important;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15) !important;
+  padding: 18px 20px !important;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12) !important;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast) !important;
 }
 
 .build_card:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.22) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18) !important;
   border-color: #5e29f9 !important;
 }
 
 .build_card h4 {
   color: #0f172a !important;
-  font-size: 1.2rem !important;
+  font-size: 1.02rem !important;
   font-weight: 800 !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 6px !important;
+  line-height: 1.3 !important;
 }
 
 .build_card p {
   color: #334155 !important;
-  font-size: 0.95rem !important;
-  line-height: 1.55 !important;
+  font-size: 0.86rem !important;
+  line-height: 1.45 !important;
+}
+
+@media (max-width: 768px) {
+  .build_grid {
+    gap: 12px !important;
+  }
+
+  .build_card {
+    padding: 14px 16px !important;
+  }
+
+  .build_card h4 {
+    font-size: 0.95rem !important;
+  }
+
+  .build_card p {
+    font-size: 0.82rem !important;
+  }
 }
 
 
