@@ -2938,3 +2938,60 @@ footer#contact .styles_middle__JoinCohort h3,
     padding: 8px 16px !important;
   }
 }
+
+/* ==========================================================================
+   Header & Logo
+   ========================================================================== */
+.site_header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 32px 24px;
+}
+
+.site_header_container {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.site_logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform var(--transition-fast);
+}
+
+.site_logo:hover {
+  transform: scale(1.03);
+}
+
+.logo_img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .site_header {
+    padding: 20px 16px;
+  }
+  
+  .logo_img {
+    height: 38px;
+  }
+}
+
+/* Footer layout override for 2 columns */
+.styles_footer__0LLV_ .styles_container__jRrDg {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  flex-wrap: wrap !important;
+  gap: 32px !important;
+}
+
