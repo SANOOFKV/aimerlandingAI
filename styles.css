@@ -3124,5 +3124,36 @@ footer#contact .styles_middle__JoinCohort h3,
   font-variant-numeric: tabular-nums;
 }
 
+/* "What You'll Build" — 6 Cards White Background & Black Text */
+.build_card {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 28px 24px !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15) !important;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast) !important;
+}
+
+.build_card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.22) !important;
+  border-color: #5e29f9 !important;
+}
+
+.build_card h4 {
+  color: #0f172a !important;
+  font-size: 1.2rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 10px !important;
+}
+
+.build_card p {
+  color: #334155 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.55 !important;
+}
+
+
 
 
