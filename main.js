@@ -407,18 +407,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (daysCounter) {
     let currentVal = 1;
     const targetVal = 14;
-    const duration = 1500; // 1.5s total stroke draw & count duration
+    const duration = 1400;
     const stepInterval = Math.floor(duration / targetVal);
 
     let pathLength = 100;
-    if (curvedStroke && typeof curvedStroke.getTotalLength === 'function') {
+    if (curvedStroke) {
       try {
-        pathLength = curvedStroke.getTotalLength() || 100;
-        curvedStroke.style.strokeDasharray = pathLength.toString();
-        curvedStroke.style.strokeDashoffset = pathLength.toString();
+        const len = Math.ceil(curvedStroke.getTotalLength());
+        if (len > 20) pathLength = len;
       } catch (e) {
         pathLength = 100;
       }
+      curvedStroke.style.strokeDasharray = pathLength.toString();
+      curvedStroke.style.strokeDashoffset = pathLength.toString();
     }
 
     daysCounter.textContent = '1';
@@ -429,17 +430,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (curvedStroke) {
         const progress = (currentVal - 1) / (targetVal - 1);
-        const offset = pathLength * (1 - progress);
-        curvedStroke.style.strokeDashoffset = Math.max(0, offset).toString();
+        const offset = Math.max(0, pathLength * (1 - progress));
+        curvedStroke.style.strokeDashoffset = offset.toString();
       }
 
       if (currentVal >= targetVal) {
         clearInterval(counterTimer);
         daysCounter.textContent = targetVal;
         if (curvedStroke) curvedStroke.style.strokeDashoffset = '0';
-        if (lineCounter) {
-          lineCounter.classList.add('is-complete');
-        }
+        if (lineCounter) lineCounter.classList.add('is-complete');
       }
     }, stepInterval);
   }
