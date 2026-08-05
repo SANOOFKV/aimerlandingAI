@@ -397,5 +397,43 @@ document.addEventListener('DOMContentLoaded', () => {
   handleFormSubmit(inlineForm, 'inline_form_success');
   handleFormSubmit(modalForm, 'modal_form_success');
 
+  // ==========================================
+  // 7. Minimalist Header Line Counter (1 -> stroke line -> 14)
+  // ==========================================
+  const daysCounter = document.getElementById('header_days_counter');
+  const curvedStroke = document.getElementById('curved_stroke_path');
+  const lineCounter = document.querySelector('.header_line_counter');
+
+  if (daysCounter) {
+    let currentVal = 1;
+    const targetVal = 14;
+    const duration = 1500; // 1.5s total stroke draw & count duration
+    const stepInterval = Math.floor(duration / targetVal);
+    const maxDash = 100;
+
+    daysCounter.textContent = '1';
+    if (curvedStroke) curvedStroke.style.strokeDashoffset = maxDash.toString();
+
+    const counterTimer = setInterval(() => {
+      currentVal++;
+      daysCounter.textContent = currentVal;
+
+      if (curvedStroke) {
+        const offset = maxDash - ((currentVal - 1) / (targetVal - 1)) * maxDash;
+        curvedStroke.style.strokeDashoffset = Math.max(0, offset).toString();
+      }
+
+      if (currentVal >= targetVal) {
+        clearInterval(counterTimer);
+        daysCounter.textContent = targetVal;
+        if (curvedStroke) curvedStroke.style.strokeDashoffset = '0';
+        if (lineCounter) {
+          lineCounter.classList.add('is-complete');
+        }
+      }
+    }, stepInterval);
+  }
+
 });
+
 
