@@ -3040,11 +3040,6 @@ footer#contact .styles_middle__JoinCohort h3,
   display: block !important;
 }
 
-@keyframes drawGraphLine {
-  0% { stroke-dashoffset: 100; }
-  100% { stroke-dashoffset: 0; }
-}
-
 .curved_stroke_path {
   fill: none !important;
   stroke: #0f172a !important;
@@ -3052,14 +3047,14 @@ footer#contact .styles_middle__JoinCohort h3,
   stroke-linecap: round !important;
   stroke-linejoin: round !important;
   stroke-dasharray: 100;
-  stroke-dashoffset: 0 !important;
-  animation: drawGraphLine 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.12s linear, stroke 0.3s ease;
   filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.2));
 }
 
 .header_line_counter.is-complete .curved_stroke_path {
   stroke: #0f172a !important;
-  stroke-dashoffset: 0 !important;
+  stroke-dashoffset: 0;
 }
 
 @media (max-width: 768px) {
