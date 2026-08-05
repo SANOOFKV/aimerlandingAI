@@ -3111,4 +3111,13 @@ footer#contact .styles_middle__JoinCohort h3,
   text-align: left !important;
 }
 
+/* Hero Headline 0-to-14 Counter */
+.hero_num_counter {
+  display: inline-block;
+  min-width: 0.9em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+
 

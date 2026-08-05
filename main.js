@@ -441,8 +441,30 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lineCounter) lineCounter.classList.add('is-complete');
       }
     }, stepInterval);
+  // ==========================================
+  // 8. Hero Headline 0-to-14 Counter Animation
+  // ==========================================
+  const heroCounter = document.getElementById('hero_days_counter');
+  if (heroCounter) {
+    let currentHeroVal = 0;
+    const targetHeroVal = 14;
+    const duration = 1400;
+    const stepInterval = Math.floor(duration / (targetHeroVal + 1));
+
+    heroCounter.textContent = '0';
+
+    const heroTimer = setInterval(() => {
+      currentHeroVal++;
+      heroCounter.textContent = currentHeroVal;
+
+      if (currentHeroVal >= targetHeroVal) {
+        clearInterval(heroTimer);
+        heroCounter.textContent = targetHeroVal;
+      }
+    }, stepInterval);
   }
 
 });
+
 
 
