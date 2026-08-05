@@ -2997,11 +2997,24 @@ footer#contact .styles_middle__JoinCohort h3,
   transform: translateY(3px);
 }
 
+.counter_end_wrap {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
 .counter_end {
   color: #0f172a;
   min-width: 18px;
   text-align: center;
   transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.counter_unit {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #5e29f9;
+  letter-spacing: 0.02em;
 }
 
 .header_line_counter.is-complete .counter_end {

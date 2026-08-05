@@ -398,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
   handleFormSubmit(modalForm, 'modal_form_success');
 
   // ==========================================
-  // 7. Minimalist Header Line Counter (1 -> stroke line -> 14)
+  // 7. Header Progressive Upward Graph Counter (1 -> line -> 14 Days)
   // ==========================================
   const daysCounter = document.getElementById('header_days_counter');
   const curvedStroke = document.getElementById('curved_stroke_path');
@@ -409,17 +409,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetVal = 14;
     const duration = 1500; // 1.5s total stroke draw & count duration
     const stepInterval = Math.floor(duration / targetVal);
-    const maxDash = 100;
+
+    let pathLength = 100;
+    if (curvedStroke && typeof curvedStroke.getTotalLength === 'function') {
+      try {
+        pathLength = curvedStroke.getTotalLength() || 100;
+        curvedStroke.style.strokeDasharray = pathLength.toString();
+        curvedStroke.style.strokeDashoffset = pathLength.toString();
+      } catch (e) {
+        pathLength = 100;
+      }
+    }
 
     daysCounter.textContent = '1';
-    if (curvedStroke) curvedStroke.style.strokeDashoffset = maxDash.toString();
 
     const counterTimer = setInterval(() => {
       currentVal++;
       daysCounter.textContent = currentVal;
 
       if (curvedStroke) {
-        const offset = maxDash - ((currentVal - 1) / (targetVal - 1)) * maxDash;
+        const progress = (currentVal - 1) / (targetVal - 1);
+        const offset = pathLength * (1 - progress);
         curvedStroke.style.strokeDashoffset = Math.max(0, offset).toString();
       }
 
