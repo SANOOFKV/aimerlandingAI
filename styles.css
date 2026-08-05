@@ -3161,21 +3161,22 @@ footer#contact .styles_middle__JoinCohort h3,
 
 @media (max-width: 768px) {
   .build_grid {
-    gap: 10px !important;
+    gap: 8px !important;
   }
 
   .build_card {
-    padding: 12px 14px !important;
+    padding: 10px 12px !important;
   }
 
   .build_card h4 {
-    font-size: 0.88rem !important;
-    margin-bottom: 4px !important;
+    font-size: 0.80rem !important;
+    margin-bottom: 2px !important;
+    line-height: 1.2 !important;
   }
 
   .build_card p {
-    font-size: 0.78rem !important;
-    line-height: 1.35 !important;
+    font-size: 0.70rem !important;
+    line-height: 1.3 !important;
   }
 }
 
