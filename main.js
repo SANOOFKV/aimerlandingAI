@@ -80,26 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 4. Hero Dashboard 3D Tilt Parallax
+  // 4. Hero Section reference (for SVG parallax below)
   // ==========================================
-  const heroImageContainer = document.querySelector('.styles_images__w4HUt');
   const heroSection = document.querySelector('.styles_hero__XVQM0');
-
-  if (heroSection && heroImageContainer) {
-    heroSection.addEventListener('mousemove', (e) => {
-      const rect = heroSection.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const rotateX = ((e.clientY - centerY) / rect.height) * -12;
-      const rotateY = ((e.clientX - centerX) / rect.width) * 12;
-
-      heroImageContainer.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-    });
-
-    heroSection.addEventListener('mouseleave', () => {
-      heroImageContainer.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
-    });
-  }
 
   // ==========================================
   // 5. Header Scroll Glass Effect
@@ -414,88 +397,5 @@ document.addEventListener('DOMContentLoaded', () => {
   handleFormSubmit(inlineForm, 'inline_form_success');
   handleFormSubmit(modalForm, 'modal_form_success');
 
-  // ==========================================
-  // 12. Interactive Ambient Fiber Canvas Mesh Effect
-  // ==========================================
-  const canvas = document.querySelector('.styles_fiber__R8VPk canvas');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    let canvasMouseX = width / 2;
-    let canvasMouseY = height / 2;
-
-    window.addEventListener('mousemove', (e) => {
-      canvasMouseX = e.clientX;
-      canvasMouseY = e.clientY;
-    });
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
-
-    const particles = [];
-    const particleCount = 65;
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        radius: Math.random() * 2.5 + 1,
-        alpha: Math.random() * 0.5 + 0.15
-      });
-    }
-
-    function renderCanvas() {
-      ctx.clearRect(0, 0, width, height);
-
-      for (let i = 0; i < particleCount; i++) {
-        const p1 = particles[i];
-        p1.x += p1.vx;
-        p1.y += p1.vy;
-
-        const dxMouse = canvasMouseX - p1.x;
-        const dyMouse = canvasMouseY - p1.y;
-        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-        if (distMouse < 180) {
-          p1.x += dxMouse * 0.008;
-          p1.y += dyMouse * 0.008;
-        }
-
-        if (p1.x < 0) p1.x = width;
-        if (p1.x > width) p1.x = 0;
-        if (p1.y < 0) p1.y = height;
-        if (p1.y > height) p1.y = 0;
-
-        ctx.beginPath();
-        ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(94, 41, 249, ${p1.alpha})`;
-        ctx.fill();
-
-        for (let j = i + 1; j < particleCount; j++) {
-          const p2 = particles[j];
-          const dx = p1.x - p2.x;
-          const dy = p1.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 150) {
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(94, 41, 249, ${0.15 * (1 - dist / 150)})`;
-            ctx.lineWidth = 0.9;
-            ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(renderCanvas);
-    }
-
-    renderCanvas();
-  }
 });
+
