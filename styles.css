@@ -3124,9 +3124,9 @@ footer#contact .styles_middle__JoinCohort h3,
   font-variant-numeric: tabular-nums;
 }
 
-/* "What You'll Build" — Compact 6 Cards & Text Overrides */
+/* "What You'll Build" — 6 Cards Overrides (Full Desktop, Compact Mobile) */
 .build_grid {
-  gap: 12px !important;
+  gap: 20px !important;
 }
 
 .build_card {
@@ -3134,29 +3134,29 @@ footer#contact .styles_middle__JoinCohort h3,
   color: #0f172a !important;
   border: 1px solid rgba(226, 232, 240, 0.8) !important;
   border-radius: var(--radius-md) !important;
-  padding: 14px 16px !important;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1) !important;
+  padding: 24px 24px !important;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12) !important;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast) !important;
 }
 
 .build_card:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.16) !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.2) !important;
   border-color: #5e29f9 !important;
 }
 
 .build_card h4 {
   color: #0f172a !important;
-  font-size: 0.92rem !important;
+  font-size: 1.15rem !important;
   font-weight: 800 !important;
-  margin-bottom: 4px !important;
-  line-height: 1.25 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
 }
 
 .build_card p {
   color: #334155 !important;
-  font-size: 0.80rem !important;
-  line-height: 1.4 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.5 !important;
 }
 
 @media (max-width: 768px) {
@@ -3165,15 +3165,17 @@ footer#contact .styles_middle__JoinCohort h3,
   }
 
   .build_card {
-    padding: 10px 12px !important;
+    padding: 12px 14px !important;
   }
 
   .build_card h4 {
-    font-size: 0.86rem !important;
+    font-size: 0.88rem !important;
+    margin-bottom: 4px !important;
   }
 
   .build_card p {
-    font-size: 0.76rem !important;
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
   }
 }
 
