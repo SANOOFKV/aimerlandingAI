@@ -3059,6 +3059,11 @@ footer#contact .styles_middle__JoinCohort h3,
 }
 
 @media (max-width: 768px) {
+  .styles_hero__XVQM0 {
+    padding-top: 100px !important;
+    min-height: auto !important;
+  }
+
   .site_header {
     padding: 16px 14px;
   }
