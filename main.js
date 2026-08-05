@@ -398,17 +398,17 @@ document.addEventListener('DOMContentLoaded', () => {
   handleFormSubmit(modalForm, 'modal_form_success');
 
   // ==========================================
-  // 7. Header Progressive Upward Graph Counter (1 -> line -> 14 Days)
+  // 7. Header Progressive Upward Graph Counter (0 -> line -> 14)
   // ==========================================
   const daysCounter = document.getElementById('header_days_counter');
   const curvedStroke = document.getElementById('curved_stroke_path');
   const lineCounter = document.querySelector('.header_line_counter');
 
   if (daysCounter) {
-    let currentVal = 1;
+    let currentVal = 0;
     const targetVal = 14;
-    const duration = 1400;
-    const stepInterval = Math.floor(duration / targetVal);
+    const duration = 1500;
+    const stepInterval = Math.floor(duration / (targetVal + 1));
 
     let pathLength = 100;
     if (curvedStroke) {
@@ -422,14 +422,14 @@ document.addEventListener('DOMContentLoaded', () => {
       curvedStroke.style.strokeDashoffset = pathLength.toString();
     }
 
-    daysCounter.textContent = '1';
+    daysCounter.textContent = '0';
 
     const counterTimer = setInterval(() => {
       currentVal++;
       daysCounter.textContent = currentVal;
 
       if (curvedStroke) {
-        const progress = (currentVal - 1) / (targetVal - 1);
+        const progress = currentVal / targetVal;
         const offset = Math.max(0, pathLength * (1 - progress));
         curvedStroke.style.strokeDashoffset = offset.toString();
       }
