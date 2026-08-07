@@ -246,6 +246,12 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href="#reserve"], .js-open-modal').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      
+      // Direct Meta Pixel InitiateCheckout Event
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'InitiateCheckout');
+      }
+
       openModal();
     });
   });
@@ -308,31 +314,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const fullPhone = `${countryCodeSelect} ${rawPhoneInput}`.trim();
       const lsqPhone = formatLsqPhone(countryCodeSelect, rawPhoneInput);
 
-      // 1. Google Tag Manager / GTag DataLayer Lead Event
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        'event': 'lead_submitted',
-        'form_id': form.id,
-        'user_name': nameInput,
-        'user_email': emailInput,
-        'user_phone': fullPhone,
-        'user_role': roleSelect
-      });
-
-      // 2. Microsoft Clarity Custom Lead Event
+      // 1. Microsoft Clarity Custom Lead Event
       if (typeof window.clarity === 'function') {
         window.clarity('event', 'lead_submitted');
       }
 
-      // 3. Meta Pixel (Facebook Pixel) Lead Conversion Event
-      if (typeof window.fbq === 'function') {
-        window.fbq('track', 'Lead', {
-          content_name: '14-Day Applied AI Workshop',
-          category: roleSelect
-        });
-      }
-
-      // 4. LeadSquared CRM API Payload Construction
+      // 2. LeadSquared CRM API Payload Construction
       const nameParts = nameInput.trim().split(' ');
       const firstName = nameParts[0] || '';
       const lastName = nameParts.slice(1).join(' ') || '';
@@ -353,44 +340,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (utms.utmTerm)     lsqPayload.push({ Attribute: 'mx_utm_term',     Value: utms.utmTerm });
       if (utms.utmContent)  lsqPayload.push({ Attribute: 'mx_utm_content',  Value: utms.utmContent });
 
-      // Post Lead Data to LeadSquared CRM API
+      // Post Lead Data to LeadSquared CRM API & Redirect to Thank You Page
       fetch(LSQ_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(lsqPayload)
-      }).then(async (res) => {
-        if (!res.ok) {
-          const text = await res.text();
-          console.warn('LeadSquared API response warning:', text);
-        }
-      }).catch(err => console.warn('LeadSquared CRM submission network error:', err));
-
-      const successBox = document.getElementById(successMsgId);
-      if (successBox) {
-        form.style.display = 'none';
-
-        successBox.style.display = 'block';
-        successBox.innerHTML = `
-          <div style="display:flex; flex-direction:column; align-items:center; text-align:center; padding: 24px 12px; gap:12px; animation: fadeIn 0.4s ease-out;">
-            <div style="width:54px; height:54px; border-radius:50%; background: linear-gradient(135deg, #22c55e, #16a34a); display:flex; align-items:center; justify-content:center; color:#ffffff; box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35);">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <h4 style="font-size:1.25rem; font-weight:800; color:#0f172a; margin:0;">Seat Reservation Request Received!</h4>
-            <p style="font-size:0.90rem; color:#475569; margin:0; line-height:1.45;">Welcome aboard! Our mentor team will reach out via WhatsApp/Email shortly to complete your enrollment.</p>
-          </div>
-        `;
-        form.reset();
-        
-        if (form === modalForm) {
-          setTimeout(() => {
-            closeModal();
-            setTimeout(() => {
-              form.style.display = 'block';
-              successBox.style.display = 'none';
-            }, 600);
-          }, 3200);
-        }
-      }
+      }).finally(() => {
+        window.location.href = 'thank-you.html';
+      });
     });
   }
 

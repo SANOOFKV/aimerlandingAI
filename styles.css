@@ -3217,6 +3217,133 @@ footer#contact .styles_middle__JoinCohort h3,
   }
 }
 
+/* ==========================================================================
+   Thank You Page Styling
+   ========================================================================== */
+.thankyou_wrapper {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 60px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.thankyou_card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  max-width: 640px;
+  width: 100%;
+  padding: 48px 36px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  position: relative;
+  z-index: 2;
+}
+
+.success_icon_badge {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.35);
+}
+
+.thankyou_title {
+  font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.thankyou_subtitle {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.next_steps_box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.next_steps_box h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+.steps_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.steps_list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.step_num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #008ba5;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.steps_list strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.steps_list p {
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.thankyou_actions {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .thankyou_card {
+    padding: 32px 20px;
+  }
+}
+
 
 
 
