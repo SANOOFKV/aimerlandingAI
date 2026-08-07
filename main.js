@@ -246,12 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href="#reserve"], .js-open-modal').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      
-      // Direct Meta Pixel InitiateCheckout Event
-      if (typeof window.fbq === 'function') {
-        window.fbq('track', 'InitiateCheckout');
-      }
-
       openModal();
     });
   });
