@@ -1605,12 +1605,9 @@ section#build .section_desc,
   animation: fadeIn 0.4s ease-out;
 }
 
-/* Strict Modal Open Scroll Lock */
-html.modal-open,
+/* Modal Open Scroll Lock (Preserves current scroll position) */
 body.modal-open {
   overflow: hidden !important;
-  height: 100vh !important;
-  touch-action: none !important;
 }
 
 /* ==========================================================================

@@ -192,11 +192,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalCloseBtn = document.getElementById('modal_close');
   let hasPoppedOnScroll = false;
 
+  let modalSavedScrollPos = 0;
+
   function openModal() {
     if (!modalBackdrop) return;
+    modalSavedScrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
     modalBackdrop.classList.add('is-open');
     modalBackdrop.setAttribute('aria-hidden', 'false');
-    document.documentElement.classList.add('modal-open');
     document.body.classList.add('modal-open');
     hasPoppedOnScroll = true;
   }
@@ -205,8 +207,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!modalBackdrop) return;
     modalBackdrop.classList.remove('is-open');
     modalBackdrop.setAttribute('aria-hidden', 'true');
-    document.documentElement.classList.remove('modal-open');
     document.body.classList.remove('modal-open');
+    // Maintain exact scroll position user was at before modal opened
+    window.scrollTo({
+      top: modalSavedScrollPos,
+      behavior: 'instant'
+    });
   }
 
   // Close modal on Escape key press
