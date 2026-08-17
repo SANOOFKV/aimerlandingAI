@@ -195,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function openModal() {
     if (!modalBackdrop) return;
     modalBackdrop.classList.add('is-open');
+    modalBackdrop.setAttribute('aria-hidden', 'false');
     document.documentElement.classList.add('modal-open');
     document.body.classList.add('modal-open');
     hasPoppedOnScroll = true;
@@ -203,9 +204,34 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeModal() {
     if (!modalBackdrop) return;
     modalBackdrop.classList.remove('is-open');
+    modalBackdrop.setAttribute('aria-hidden', 'true');
     document.documentElement.classList.remove('modal-open');
     document.body.classList.remove('modal-open');
   }
+
+  // Close modal on Escape key press
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      if (modalBackdrop && modalBackdrop.classList.contains('is-open')) {
+        closeModal();
+      }
+    }
+  });
+
+  // ─── Real-Time Phone Number Formatting & Digit Masking ─────────────────────
+  document.querySelectorAll('.single_phone_input').forEach(input => {
+    input.addEventListener('input', (e) => {
+      let val = e.target.value;
+      val = val.replace(/[^\d\s-]/g, '');
+      const select = e.target.closest('.single_phone_field')?.querySelector('.single_phone_select');
+      const countryCode = select?.value || '';
+      const digitsOnly = val.replace(/\D/g, '');
+      if (countryCode === '+91' && digitsOnly.length > 10) {
+        val = digitsOnly.slice(0, 10);
+      }
+      e.target.value = val;
+    });
+  });
 
   // Intercept scroll/wheel/touchmove events outside modal card while modal is open
   window.addEventListener('wheel', (e) => {
