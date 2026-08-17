@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://www.aimerbschool.com/thank-you"/>
     <meta property="og:site_name" content="Aimer AI"/>
 
-    <!-- Meta Pixel Code (Fires PageView & Lead Event on Load) -->
+    <!-- Meta Pixel Code (Fires PageView & Single Verified Lead Event) -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -25,10 +25,21 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1577616637185815');
     fbq('track', 'PageView');
-    fbq('track', 'Lead', {
-      content_name: '14-Day Applied AI Workshop',
-      status: 'Seat Reserved'
-    });
+
+    // Fire Lead event ONLY if verified submission occurred in this session
+    // Deduplicates automatic Meta Pixel events & prevents reload/direct visit double counting
+    try {
+      if (sessionStorage.getItem('aimer_lead_submitted') === 'true') {
+        var leadId = sessionStorage.getItem('aimer_lead_id') || ('lead_' + Date.now());
+        fbq('track', 'Lead', {
+          content_name: '14-Day Applied AI Workshop',
+          status: 'Seat Reserved'
+        }, { eventID: leadId });
+        sessionStorage.removeItem('aimer_lead_submitted');
+      }
+    } catch(e) {
+      console.warn('Meta Pixel Lead tracking error:', e);
+    }
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1577616637185815&ev=PageView&noscript=1"

@@ -298,6 +298,23 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
+      const submitBtn = form.querySelector('.submit_btn');
+      if (submitBtn) {
+        if (submitBtn.disabled) return;
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>Submitting...</span>';
+      }
+
+      // Generate unique Lead Event ID for Meta Pixel & session deduplication
+      const leadId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+      try {
+        sessionStorage.setItem('aimer_lead_submitted', 'true');
+        sessionStorage.setItem('aimer_lead_id', leadId);
+      } catch (err) {
+        console.warn('Session storage write error:', err);
+      }
+
       // Extract Form Field Values
       const nameInput = form.querySelector('input[type="text"]')?.value || '';
       const emailInput = form.querySelector('input[type="email"]')?.value || '';
