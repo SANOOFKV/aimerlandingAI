@@ -23,8 +23,23 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
+    // Extract Customer Data for Manual Advanced Matching
+    var userData = {};
+    try {
+      if (sessionStorage.getItem('aimer_lead_submitted') === 'true') {
+        var em = sessionStorage.getItem('aimer_lead_email');
+        var ph = sessionStorage.getItem('aimer_lead_phone');
+        var fn = sessionStorage.getItem('aimer_lead_fn');
+        var ln = sessionStorage.getItem('aimer_lead_ln');
+        if (em) userData.em = em;
+        if (ph) userData.ph = ph;
+        if (fn) userData.fn = fn;
+        if (ln) userData.ln = ln;
+      }
+    } catch(e) {}
+
     fbq('set', 'autoConfig', false, '1577616637185815');
-    fbq('init', '1577616637185815');
+    fbq('init', '1577616637185815', userData);
     fbq('track', 'PageView');
 
     // Fire Lead event ONLY if verified submission occurred in this session
@@ -38,6 +53,10 @@
         }, { eventID: leadId });
         sessionStorage.removeItem('aimer_lead_submitted');
         sessionStorage.removeItem('aimer_lead_id');
+        sessionStorage.removeItem('aimer_lead_email');
+        sessionStorage.removeItem('aimer_lead_phone');
+        sessionStorage.removeItem('aimer_lead_fn');
+        sessionStorage.removeItem('aimer_lead_ln');
       }
     } catch(e) {
       console.warn('Meta Pixel Lead tracking error:', e);

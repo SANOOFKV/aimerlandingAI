@@ -338,15 +338,6 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.innerHTML = '<span>Submitting...</span>';
       }
 
-      // Generate unique Lead Event ID for Meta Pixel & session deduplication
-      const leadId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
-      try {
-        sessionStorage.setItem('aimer_lead_submitted', 'true');
-        sessionStorage.setItem('aimer_lead_id', leadId);
-      } catch (err) {
-        console.warn('Session storage write error:', err);
-      }
-
       // Extract Form Field Values
       const nameInput = form.querySelector('input[type="text"]')?.value || '';
       const emailInput = form.querySelector('input[type="email"]')?.value || '';
@@ -357,15 +348,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const fullPhone = `${countryCodeSelect} ${rawPhoneInput}`.trim();
       const lsqPhone = formatLsqPhone(countryCodeSelect, rawPhoneInput);
 
+      const nameParts = nameInput.trim().split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
+
+      // Generate unique Lead Event ID for Meta Pixel & session deduplication
+      const leadId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+      try {
+        sessionStorage.setItem('aimer_lead_submitted', 'true');
+        sessionStorage.setItem('aimer_lead_id', leadId);
+        sessionStorage.setItem('aimer_lead_email', emailInput.trim().toLowerCase());
+        sessionStorage.setItem('aimer_lead_phone', lsqPhone.replace(/\D/g, ''));
+        sessionStorage.setItem('aimer_lead_fn', firstName.trim().toLowerCase());
+      } catch (err) {
+        console.warn('Session storage write error:', err);
+      }
+
       // 1. Microsoft Clarity Custom Lead Event
       if (typeof window.clarity === 'function') {
         window.clarity('event', 'lead_submitted');
       }
 
       // 2. LeadSquared CRM API Payload Construction
-      const nameParts = nameInput.trim().split(' ');
-      const firstName = nameParts[0] || '';
-      const lastName = nameParts.slice(1).join(' ') || '';
 
       const lsqPayload = [
         { Attribute: 'FirstName',        Value: firstName },
